@@ -25,9 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Login Docker and Push the Docker image
-        env:
-          NAME: ${{ secrets.DOCKER_ID }}
-          KEY: ${{ secrets.DOCKER_KEY }}
         run: |
-          echo docker login -u $NAME -p $KEY
+          echo docker login -u ${ secrets.DOCKER_ID } -p ${ secrets.DOCKER_KEY }
           docker push try-mock-vue:v1.0.0
