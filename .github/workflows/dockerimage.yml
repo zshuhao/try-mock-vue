@@ -6,12 +6,18 @@ on:
       - master
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-#     - uses: actions/checkout@v1
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
     - name: Build project and Build the Docker image
-      run:
+      run: |
         yarn
         yarn run build
         docker build -t gudongn/try-mock-vue:latest
@@ -19,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Login Docker and Push the Docker image
-        run:
+        run: |
           docker login -u gudongn -p zhang6681
           docker push try-mock-vue:latest
