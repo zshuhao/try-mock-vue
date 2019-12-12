@@ -27,4 +27,4 @@ jobs:
       - name: Login Docker and Push the Docker image
         run: |
           docker login -u gudongn -p zhang6681
-          docker push try-mock-vue:latest
+          docker push gudongn/try-mock-vue:latest
