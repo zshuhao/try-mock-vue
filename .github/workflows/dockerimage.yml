@@ -12,7 +12,8 @@ jobs:
 #     - uses: actions/checkout@v1
     - name: Build project and Build the Docker image
       run:
-        npm run build
+        yarn install
+        yarn run build
         docker build -t gudongn/try-mock-vue:latest
   push:
     runs-on: ubuntu-latest
