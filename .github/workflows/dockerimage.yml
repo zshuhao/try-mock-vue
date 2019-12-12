@@ -19,12 +19,14 @@ jobs:
         yarn
         yarn run build
         docker build . --file Dockerfile --tag try-mock-vue:v1.0.0
+        docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_KEY }}
+        docker push try-mock-vue:v1.0.0
 
-  push: 
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Login Docker and Push the Docker image
-        run: |
-          docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_KEY }}
-          docker push try-mock-vue:v1.0.0
+  # push: 
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Login Docker and Push the Docker image
+  #       run: |
+  #         docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_KEY }}
+  #         docker push try-mock-vue:v1.0.0
