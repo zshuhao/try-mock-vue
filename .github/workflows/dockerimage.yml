@@ -20,7 +20,7 @@ jobs:
       run: |
         yarn
         yarn run build
-        docker build -t gudongn/try-mock-vue:latest
+        docker build . --file Dockerfile --tag gudongn/try-mock-vue:latest
   push:
     runs-on: ubuntu-latest
     steps:
