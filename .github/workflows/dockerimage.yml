@@ -18,9 +18,9 @@ jobs:
       run: |
         yarn
         yarn run build
-        docker build . --file Dockerfile --tag try-mock-vue:v1.0.0
+        docker build . --file Dockerfile --tag try-mock-vue:latest
         docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_KEY }}
-        docker push try-mock-vue:v1.0.0
+        docker push try-mock-vue:latest
 
   # push: 
   #   needs: build
