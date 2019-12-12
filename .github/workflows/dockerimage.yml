@@ -13,7 +13,6 @@ jobs:
     - name: Build project and Build the Docker image
       run:
         npm run build
-        # docker build . --file Dockerfile --tag try-mock-vue:$(date +%s)
         docker build -t gudongn/try-mock-vue:latest
   push:
     runs-on: ubuntu-latest
