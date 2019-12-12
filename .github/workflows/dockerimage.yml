@@ -20,11 +20,11 @@ jobs:
       run: |
         yarn
         yarn run build
-        docker build . --file Dockerfile --tag gudongn/try-mock-vue:latest
+        docker build . --file Dockerfile --tag gudongn/try-mock-vue:v1.0.0
   push:
     runs-on: ubuntu-latest
     steps:
       - name: Login Docker and Push the Docker image
         run: |
           docker login -u gudongn -p zhang6681
-          docker push gudongn/try-mock-vue:latest
+          docker push gudongn/try-mock-vue:v1.0.0
