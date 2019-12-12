@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+#     - uses: actions/checkout@v1
+    - name: Build project and Build the Docker image
+      run:
+        npm run build
+        docker build . --file Dockerfile --tag try-mock-vue:$(date +%s)
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login Docker and Push the Docker image
+        run:
+          docker login -u gudongn -p 3fa7dbde-f973-4792-b74a-d3f5fe1f0f61
+          docker push try-mock-vue:$(date +%s)
