@@ -29,5 +29,5 @@ jobs:
           NAME: ${{ secrets.DOCKER_ID }}
           KEY: ${{ secrets.DOCKER_KEY }}
         run: |
-          docker login -u $NAME -p $KEY
+          echo docker login -u $NAME -p $KEY
           docker push try-mock-vue:v1.0.0
