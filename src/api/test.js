@@ -7,3 +7,7 @@ export function testGet () {
 export function testPost () {
     return request({ url: `http://localhost:3000/test/list` })
 }
+
+export function createUser (data) {
+    return request({ url: `http://localhost:3000/users/create`, data })
+}
